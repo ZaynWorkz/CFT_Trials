@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTF Algorithm · Cognitive Trajectory Fusion</title>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome Icons (optional but nice) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <div class="document-container">
-        <!-- Header -->
-        <div class="document-header">
-            <h1>CTF Algorithm <span class="version-badge">v2.0</span></h1>
-            <div class="subtitle">Cognitive Trajectory Fusion · JEE/NEET Platform</div>
-            <div class="header-stats">
-                <span><i class="fas fa-code-branch"></i> 5 Signals</span>
-                <span><i class="fas fa-weight-hanging"></i> 5 Weights</span>
-                <span><i class="fas fa-cubes"></i> 2 Modes</span>
-            </div>
-        </div>
-        
-        <!-- Navigation Tabs (Interactive) -->
-        <div class="nav-tabs" id="navTabs">
-            <div class="nav-tab active" data-tab="overview">📊 Overview</div>
-            <div class="nav-tab" data-tab="signals">📡 Signals</div>
-            <div class="nav-tab" data-tab="bwv">⚖️ BWV</div>
-            <div class="nav-tab" data-tab="irt">🧮 IRT</div>
-            <div class="nav-tab" data-tab="glicko">⭐ Glicko</div>
-            <div class="nav-tab" data-tab="modes">🔄 Modes</div>
-            <div class="nav-tab" data-tab="reference">📋 Reference</div>
-        </div>
-        
-        <!-- Content Area (Dynamic) -->
-        <div class="content" id="content">
-            <!-- JavaScript will populate this -->
-        </div>
-        
-        <!-- Footer -->
-        <div class="document-footer">
-            <p>CTF Algorithm · Complete Reference Guide</p>
-            <p class="footer-links">
-                <a href="https://github.com/yourusername/ctf-algorithm" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <span class="separator">•</span>
-                <span id="lastUpdated"></span>
-            </p>
-        </div>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+<title>CTF Algorithm - Complete Reference Guide</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="document-container">
+
+<!-- Header -->
+<div class="document-header">
+<h1>CTF Algorithm</h1>
+<div class="subtitle">Cognitive Trajectory Fusion • Complete Reference Guide</div>
+<div class="version">Version 2.0 • JEE/NEET Platform</div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-tabs">
+<div class="nav-tab active">Overview</div>
+<div class="nav-tab">Signal Scores</div>
+<div class="nav-tab">BWV</div>
+<div class="nav-tab">IRT/Glicko</div>
+<div class="nav-tab">Modes</div>
+<div class="nav-tab">Reference</div>
+</div>
+
+<div class="content">
+
+<h2 class="section-title">📊 Quick Reference Card</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="card-title">🎯 Signal Scores</div>
+<p><b>DLI</b> = 1 - (t/t_max)</p>
+<p><b>CMS</b> = 1 - weight(error)</p>
+<p><b>ADRC</b> = weighted mean(correct_rate)</p>
+<p><b>CED</b> = (attempts × time)</p>
+<p><b>LVC</b> = learning velocity</p>
+</div>
+
+<div class="card">
+<div class="card-title">⚖️ BWV Formula</div>
+<p class="formula">BWV = (w₁×DLI) × (w₂×CMS) × (w₃×ADRC) × (w₄×CED) × (1 + w₅×LVC)</p>
+</div>
+
+<div class="card">
+<div class="card-title">🧮 IRT Updates</div>
+<p>θ_new = θ + 0.15 × (actual×BWV − P_i)</p>
+<p>χ_new = χ − 8 × (actual − P_i) × ADRC</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="document-footer">
+<p>CTF Algorithm v2.0 • Cognitive Trajectory Fusion</p>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
