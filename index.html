@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTF Algorithm Interactive</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Icons -->
@@ -17,43 +18,158 @@
 
     <!-- HEADER -->
     <header class="header">
-        <h1>CTF Algorithm <span class="version">Interactive</span></h1>
-        <p>Now with live simulation + navigation</p>
+        <h1>CTF Algorithm <span class="version">v2.0</span></h1>
+        <p class="subtitle">Interactive Algorithm Dashboard</p>
     </header>
 
     <!-- NAV -->
     <nav class="toc">
         <a href="#overview" class="toc-link">Overview</a>
+        <a href="#signals" class="toc-link">Signals</a>
+        <a href="#bwv" class="toc-link">BWV</a>
         <a href="#calculator" class="toc-link">Calculator</a>
         <a href="#formulas" class="toc-link">Formulas</a>
     </nav>
 
-    <!-- CONTENT -->
+    <!-- MAIN -->
     <main class="content">
 
         <!-- OVERVIEW -->
         <section id="overview" class="section">
-            <h2>Overview</h2>
-            <button class="toggle-btn">Toggle Details</button>
+            <div class="section-title">
+                <span>Overview</span>
+            </div>
 
-            <div class="toggle-content">
-                <p>CTF uses behavioral signals to compute scores.</p>
+            <div class="section-content">
+                <p>CTF (Cognitive Trajectory Fusion) combines behavioral signals to compute performance scores.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>DLI</h3>
+                        <p>Decision Latency Index</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>CMS</h3>
+                        <p>Cognitive Mistake Signature</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>CED</h3>
+                        <p>Engagement Density</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 🔥 INTERACTIVE CALCULATOR -->
+        <!-- SIGNALS -->
+        <section id="signals" class="section">
+            <div class="section-title">
+                <span>Signals</span>
+            </div>
+
+            <div class="section-content">
+
+                <div class="formula-block">
+                    <div>DLI = 1 - (t / t_max)</div>
+                </div>
+
+                <div class="formula-block">
+                    <div>CMS = 1 - weight(error)</div>
+                </div>
+
+                <div class="formula-block">
+                    <div>CED = (engagement × time)</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BWV -->
+        <section id="bwv" class="section">
+            <div class="section-title">
+                <span>Behavioral Weight Vector</span>
+            </div>
+
+            <div class="section-content">
+
+                <div class="formula-block">
+                    <div>
+                        BWV = (0.2×DLI)(0.3×CMS)(0.2×ADRC)(0.3×CED)(1 + 0.25×LVC)
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 🔥 CALCULATOR -->
         <section id="calculator" class="section">
-            <h2>BWV Calculator</h2>
+            <div class="section-title">
+                <span>BWV Calculator</span>
+            </div>
 
-            <div class="calc-box">
+            <div class="section-content">
 
-                <label>DLI</label>
-                <input type="number" id="dli" step="0.01">
+                <div class="calc-box">
 
-                <label>CMS</label>
-                <input type="number" id="cms" step="0.01">
+                    <label>DLI</label>
+                    <input type="number" id="dli" step="0.01">
 
-                <label>ADRC</label>
-                <input type="number" id="adrc" step="0.01">
+                    <label>CMS</label>
+                    <input type="number" id="cms" step="0.01">
 
-                <label
+                    <label>ADRC</label>
+                    <input type="number" id="adrc" step="0.01">
+
+                    <label>CED</label>
+                    <input type="number" id="ced" step="0.01">
+
+                    <label>LVC</label>
+                    <input type="number" id="lvc" step="0.01">
+
+                    <button onclick="calculateBWV()">Calculate</button>
+
+                    <h3 id="result">Result: --</h3>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FORMULAS -->
+        <section id="formulas" class="section">
+            <div class="section-title">
+                <span>All Formulas</span>
+            </div>
+
+            <div class="section-content">
+
+                <div class="formula-block">
+                    BWV = w₁DLI × w₂CMS × w₃ADRC × w₄CED × (1 + w₅LVC)
+                </div>
+
+                <div class="formula-block">
+                    θ_new = θ + α(Q - P)
+                </div>
+
+                <div class="formula-block">
+                    Mt_new = Mt + K × (actual - expected)
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BACK TO TOP -->
+    <a href="#" class="back-to-top">
+        ↑
+    </a>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
