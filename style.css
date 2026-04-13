@@ -67,7 +67,7 @@ html {
     position: relative;
 }
 
-[data-tooltip:hover::after] {
+[data-tooltip]:hover::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 120%;
